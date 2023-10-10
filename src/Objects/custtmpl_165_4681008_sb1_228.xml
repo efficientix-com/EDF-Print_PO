@@ -1,0 +1,9 @@
+<advancedpdftemplate scriptid="custtmpl_165_4681008_sb1_228" standard="STDTMPLPURCHORD">
+  <description></description>
+  <displaysourcecode>T</displaysourcecode>
+  <isinactive>F</isinactive>
+  <preferred>F</preferred>
+  <printtype>TRANSACTION</printtype>
+  <title>Purchase Order NRC2 Prueba</title>
+  <trantype>VENDBILL</trantype>
+</advancedpdftemplate>

@@ -1,0 +1,116 @@
+<customrecordtype scriptid="customrecord_tkio_prueba_4pdf">
+  <accesstype>CUSTRECORDENTRYPERM</accesstype>
+  <allowattachments>T</allowattachments>
+  <allowinlinedeleting>F</allowinlinedeleting>
+  <allowinlinedetaching>T</allowinlinedetaching>
+  <allowinlineediting>F</allowinlineediting>
+  <allowmobileaccess>F</allowmobileaccess>
+  <allownumberingoverride>F</allownumberingoverride>
+  <allowquickadd>T</allowquickadd>
+  <allowquicksearch>F</allowquicksearch>
+  <allowuiaccess>T</allowuiaccess>
+  <customsegment></customsegment>
+  <description></description>
+  <enabledle>T</enabledle>
+  <enablekeywords>T</enablekeywords>
+  <enablemailmerge>F</enablemailmerge>
+  <enablenametranslation>F</enablenametranslation>
+  <enablenumbering>F</enablenumbering>
+  <enableoptimisticlocking>T</enableoptimisticlocking>
+  <enablesystemnotes>T</enablesystemnotes>
+  <hierarchical>F</hierarchical>
+  <icon></icon>
+  <iconbuiltin>T</iconbuiltin>
+  <iconindex></iconindex>
+  <includeinsearchmenu>T</includeinsearchmenu>
+  <includename>T</includename>
+  <isinactive>F</isinactive>
+  <isordered>F</isordered>
+  <numberinginit></numberinginit>
+  <numberingmindigits></numberingmindigits>
+  <numberingprefix></numberingprefix>
+  <numberingsuffix></numberingsuffix>
+  <recordname>Formatos_pdf</recordname>
+  <showcreationdate>T</showcreationdate>
+  <showcreationdateonlist>T</showcreationdateonlist>
+  <showid>F</showid>
+  <showlastmodified>F</showlastmodified>
+  <showlastmodifiedonlist>F</showlastmodifiedonlist>
+  <shownotes>T</shownotes>
+  <showowner>F</showowner>
+  <showownerallowchange>F</showownerallowchange>
+  <showowneronlist>F</showowneronlist>
+  <customrecordcustomfields>
+    <customrecordcustomfield scriptid="custrecord_tkio_prueba_4pdf_descrip">
+      <accesslevel>2</accesslevel>
+      <allowquickadd>F</allowquickadd>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <encryptatrest>F</encryptatrest>
+      <fieldtype>SELECT</fieldtype>
+      <globalsearch>F</globalsearch>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <isparent>F</isparent>
+      <label>Plantilla pdf</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <parentsubtab></parentsubtab>
+      <rolerestrict>F</rolerestrict>
+      <searchcomparefield></searchcomparefield>
+      <searchdefault></searchdefault>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-387</selectrecordtype>
+      <showinlist>F</showinlist>
+      <sourcefilterby></sourcefilterby>
+      <sourcefrom></sourcefrom>
+      <sourcelist></sourcelist>
+      <storevalue>T</storevalue>
+      <subtab></subtab>
+    </customrecordcustomfield>
+  </customrecordcustomfields>
+  <instances>
+    <instance scriptid="val_1079156_4681008_sb1_968">
+      <custrecord_tkio_prueba_4pdf_descrip>[scriptid=custtmpl_165_4681008_sb1_228]</custrecord_tkio_prueba_4pdf_descrip>
+      <isinactive>F</isinactive>
+      <name>Fromato_default</name>
+    </instance>
+    <instance scriptid="val_1079157_4681008_sb1_156">
+      <custrecord_tkio_prueba_4pdf_descrip>[scriptid=custtmpl_165_4681008_sb1_228]</custrecord_tkio_prueba_4pdf_descrip>
+      <isinactive>F</isinactive>
+      <name>Formato_OC_Servicios-Proveedores_PM</name>
+    </instance>
+    <instance scriptid="val_1079158_4681008_sb1_566">
+      <custrecord_tkio_prueba_4pdf_descrip>[scriptid=custtmpl_165_4681008_sb1_228]</custrecord_tkio_prueba_4pdf_descrip>
+      <isinactive>F</isinactive>
+      <name>Formato_OC_Servicios-Proveedores_PF</name>
+    </instance>
+    <instance scriptid="val_1079159_4681008_sb1_860">
+      <custrecord_tkio_prueba_4pdf_descrip>[scriptid=custtmpl_165_4681008_sb1_228]</custrecord_tkio_prueba_4pdf_descrip>
+      <isinactive>F</isinactive>
+      <name>PF OC_Formato_Servicios_Especializados</name>
+    </instance>
+    <instance scriptid="val_1079629_4681008_sb1_783">
+      <custrecord_tkio_prueba_4pdf_descrip>[scriptid=custtmpl_165_4681008_sb1_228]</custrecord_tkio_prueba_4pdf_descrip>
+      <isinactive>F</isinactive>
+      <name>PM OC_Formato_Servicios_Especializados</name>
+    </instance>
+    <instance scriptid="val_1086235_4681008_sb1_819">
+      <custrecord_tkio_prueba_4pdf_descrip>[scriptid=custtmpl_165_4681008_sb1_228]</custrecord_tkio_prueba_4pdf_descrip>
+      <isinactive>F</isinactive>
+      <name>Formato_Prueba</name>
+    </instance>
+  </instances>
+</customrecordtype>
