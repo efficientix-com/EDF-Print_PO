@@ -125,7 +125,7 @@
                     }
                     </style>
                     </head>
-                    <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="Letter">
+                    <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="A4-landscape">
 
 
                     <table class="header" style="width: 100%;"><tr>
@@ -300,10 +300,10 @@
                         <tr>
                             <td style="color:#001a70;font-size:10pt;font-weight: bold;">Contacto:</td>
                             <td style="color:#001a70;">${RECORD_PDF[0].rep_legal_vendor}</td>
-                            <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
-                            <td style="border-bottom: 1px solid black; color:#001a70;"></td>
-                            <#--  <td style="border-right:1px solid black; border-left:1px solid black;border-top:1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">INCOTERM:</td>
-                            <td style="border-top:1px solid black;color:#001a70;">  ${RECORD_PDF[0].incoterm} </td>  -->
+                            <#--  <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
+                            <td style="border-bottom: 1px solid black; color:#001a70;"></td>  -->
+                            <td style="border-right:1px solid black; border-left:1px solid black;border-top:1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">Solicitante del servicio:</td>
+                            <td style="border-top:1px solid black;color:#001a70;">  ${RECORD_PDF[0].solicitud_servicio} </td>
                         </tr>
                         <#if RECORD_PDF.printlabel == 'T'>
                         <tr>
@@ -644,7 +644,7 @@
                         <td><b><span style="color:#001a70;font-size:10pt;">DETALLE DE FACTURACIÓN</span></b>
                             <p align="justify" style="color:#001a70">
                                 1. Para evitar que el CLIENTE solicite la cancelaci&oacute;n de facturas, el proveedor podr&aacute; emitir pre-facturas para que el CLIENTE apruebe el contenido.<br/>
-                                2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico a: ${RECORD_PDF[0].mail_vendor}<br/>
+                                2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico al "USUARIO": ${RECORD_PDF[0].name_usuario} ${RECORD_PDF[0].email_usuario}<br/>
                                 3. Las facturas deber&aacute;n contener obligatoriamente: Nombre o Razón Social, RFC, R&eacute;gimen Fiscal, Domicilio Fiscal, Forma de Pago, Uso de CFDI, No de Orden de Compra (Señalados en este documento) y m&eacute;todo de Pago de acuerdo con los t&eacute;rminos y condiciones de pago proporcionados por el CLIENTE. <br/>
                                 4. Por ning&uacute;n motivo el PROVEEDOR emitir&aacute; o cancelar&aacute; una factura o CFDI sin haber informado al CLIENTE.<br/>
                                 5. En caso de que el PROVEEDOR env&iacute;e al CLIENTE una factura o CDFI con m&aacute;s de 5 d&iacute;as de la fecha de emisi&oacute;n, el CLIENTE podr&aacute; solicitar la refacturaci&oacute; correspondiente;<br/>
@@ -816,7 +816,7 @@
                     </style>
                 </head>
 
-                <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="Letter">
+                <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="A4-landscape">
                     <table class="header" style="width: 100%;">
                         <tr>
                             <td align="right"><span padding="1" style="color:#001a70; border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;"><b style="color:#001a70;font-size:12pt;">Orden de Compra No.:</b> ${RECORD_PDF.num_pedido} </span></td>
@@ -842,6 +842,7 @@
                             <td roswpan="2" width="60%">
                                 <span style="color:#001a70; font-size:8pt;">
                                     <#if RECORD_PDF[0].subsidiaria?has_content>
+                                        Nombre de la empresa: 
                                         <#assign x = RECORD_PDF[0].subsidiaria?keep_before(",")>
                                             <#escape x as x?html>
                                             ${x} <br /> <br />
@@ -849,6 +850,7 @@
                                     </#if>
                                     R.F.C: ${RECORD_PDF[0].subsidiaria_rfc} <br /> <br />
                                     <#if RECORD_PDF[0].subsidiaria_adress?has_content>
+                                        Domicilio fiscal:
                                         <#assign x = RECORD_PDF[0].subsidiaria_adress>
                                         <#escape x as x?html>
                                             ${x} <br /> <br />
@@ -899,7 +901,7 @@
                                     </#if>
                                     <br/><br/>
                                     Telefono: ${RECORD_PDF[0].subsidiaria_phone}  <br /> <br />
-                                    www.edf-re.mx
+                                    Dirección Web: www.edf-re.mx
                                 </span>
                             </td>
                         </tr>
@@ -991,10 +993,10 @@
                         <tr>
                             <td style="color:#001a70;font-size:10pt;font-weight: bold;">Contacto:</td>
                             <td style="color:#001a70;">${RECORD_PDF[0].rep_legal_vendor}</td>
-                            <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
-                            <td style="border-bottom: 1px solid black; color:#001a70;"></td>
-                            <#--  <td style="border-right:1px solid black; border-left:1px solid black;border-top:1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">INCOTERM:</td>
-                            <td style="border-top:1px solid black;color:#001a70;">  ${RECORD_PDF[0].incoterm} </td>  -->
+                            <#--  <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
+                            <td style="border-bottom: 1px solid black; color:#001a70;"></td>  -->
+                            <td style="border-right:1px solid black; border-left:1px solid black;border-top:1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">Solicitante del servicio:</td>
+                            <td style="border-top:1px solid black;color:#001a70;">  ${RECORD_PDF[0].solicitud_servicio} </td>
                         </tr>
 
                         <#if RECORD_PDF.printlabel == 'T'>
@@ -1160,11 +1162,13 @@
                                     </td>
                                     <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">${item.expecteddate}</td>
                                     <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">
-                                        Términos de pago: ${item.infoFact.terminos}<br/><br/>
                                         Forma de pago : ${item.infoFact.formaPago}<br/><br/>
                                         Uso de CFDI: ${item.infoFact.cfdi}
                                     </td>
-                                    <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">${item.condicionesPago}</td>
+                                    <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">
+                                        Términos de pago: ${item.infoFact.terminos}<br/><br/>
+                                        Condiciones de facturación: ${item.condicionesPago}
+                                    </td>
                                 </tr>
                                 
                             </#list>
@@ -1356,7 +1360,7 @@
                             <td><b><span style="color:#001a70;font-size:10pt;">DETALLE DE FACTURACIÓN</span></b>
                                 <p align="justify" style="color:#001a70">
                                     1. Para evitar que el CLIENTE solicite la cancelaci&oacute;n de facturas, el proveedor podr&aacute; emitir pre-facturas para que el CLIENTE apruebe el contenido.<br/>
-                                    2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico a: ${RECORD_PDF[0].mail_vendor}<br/>
+                                    2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico al "USUARIO": ${RECORD_PDF[0].name_usuario} ${RECORD_PDF[0].email_usuario}<br/>
                                     3. Las facturas deber&aacute;n contener obligatoriamente: Nombre o Razón Social, RFC, R&eacute;gimen Fiscal, Domicilio Fiscal, Forma de Pago, Uso de CFDI, No de Orden de Compra (Señalados en este documento) y m&eacute;todo de Pago de acuerdo con los t&eacute;rminos y condiciones de pago proporcionados por el CLIENTE. <br/>
                                     4. Por ning&uacute;n motivo el PROVEEDOR emitir&aacute; o cancelar&aacute; una factura o CFDI sin haber informado al CLIENTE.<br/>
                                     5. En caso de que el PROVEEDOR env&iacute;e al CLIENTE una factura o CDFI con m&aacute;s de 5 d&iacute;as de la fecha de emisi&oacute;n, el CLIENTE podr&aacute; solicitar la refacturaci&oacute; correspondiente;<br/>
@@ -1529,7 +1533,7 @@
                     </style>
                 </head>
 
-                <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="Letter">
+                <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="A4-landscape">
                     <table class="header" style="width: 100%;">
                         <tr>
                             <td align="right"><span padding="1" style="color:#001a70; border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;"><b style="color:#001a70;font-size:12pt;">Orden de Compra No.:</b> ${RECORD_PDF.num_pedido} </span></td>
@@ -1555,6 +1559,7 @@
                             <td roswpan="2" width="60%">
                                 <span style="color:#001a70; font-size:8pt;">
                                     <#if RECORD_PDF[0].subsidiaria?has_content>
+                                        Nombre de la empresa: 
                                         <#assign x = RECORD_PDF[0].subsidiaria?keep_before(",")>
                                             <#escape x as x?html>
                                             ${x} <br /> <br />
@@ -1562,6 +1567,7 @@
                                     </#if>
                                     R.F.C: ${RECORD_PDF[0].subsidiaria_rfc} <br /> <br />
                                     <#if RECORD_PDF[0].subsidiaria_adress?has_content>
+                                        Domicilio fiscal: 
                                         <#assign x = RECORD_PDF[0].subsidiaria_adress>
                                         <#escape x as x?html>
                                             ${x} <br /> <br />
@@ -1612,7 +1618,7 @@
                                     </#if>
                                     <br/><br/>
                                     Telefono: ${RECORD_PDF[0].subsidiaria_phone}  <br /> <br />
-                                    www.edf-re.mx
+                                    Dirección Web: www.edf-re.mx
                                 </span>
                             </td>
                         </tr>
@@ -1699,8 +1705,10 @@
                         <tr>
                             <td style="color:#001a70;font-size:10pt;font-weight: bold;">Contacto:</td>
                             <td style="color:#001a70;">${RECORD_PDF[0].rep_legal_vendor}</td>
-                            <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
-                            <td style="border-bottom: 1px solid black; color:#001a70;"></td>
+                            <#--  <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
+                            <td style="border-bottom: 1px solid black; color:#001a70;"></td>  -->
+                            <td style="border-right:1px solid black; border-left:1px solid black;border-top:1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">Solicitante del servicio:</td>
+                            <td style="border-top:1px solid black;color:#001a70;">  ${RECORD_PDF[0].solicitud_servicio} </td>
                         </tr>
 
                         <#if RECORD_PDF.printlabel == 'T'>
@@ -1862,11 +1870,13 @@
                                     </td>
                                     <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">${item.expecteddate}</td>
                                     <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">
-                                        Términos de pago: ${item.infoFact.terminos}<br/><br/>
                                         Forma de pago : ${item.infoFact.formaPago}<br/><br/>
                                         Uso de CFDI: ${item.infoFact.cfdi}
                                     </td>
-                                    <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">${item.condicionesPago}</td>
+                                    <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">
+                                        Términos de pago: ${item.infoFact.terminos}<br/><br/>
+                                        condiciones de facturación: ${item.condicionesPago}
+                                    </td>
                                 </tr>
                             </#list>
                             <!-- end items -->
@@ -2052,7 +2062,7 @@
                             <td><b><span style="color:#001a70;font-size:10pt;">DETALLE DE FACTURACIÓN</span></b>
                                 <p align="justify" style="color:#001a70">
                                     1. Para evitar que el CLIENTE solicite la cancelaci&oacute;n de facturas, el proveedor podr&aacute; emitir pre-facturas para que el CLIENTE apruebe el contenido.<br/>
-                                    2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico a: ${RECORD_PDF[0].mail_vendor}<br/>
+                                    2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico al "USUARIO": ${RECORD_PDF[0].name_usuario} ${RECORD_PDF[0].email_usuario}<br/>
                                     3. Las facturas deber&aacute;n contener obligatoriamente: Nombre o Razón Social, RFC, R&eacute;gimen Fiscal, Domicilio Fiscal, Forma de Pago, Uso de CFDI, No de Orden de Compra (Señalados en este documento) y m&eacute;todo de Pago de acuerdo con los t&eacute;rminos y condiciones de pago proporcionados por el CLIENTE. <br/>
                                     4. Por ning&uacute;n motivo el PROVEEDOR emitir&aacute; o cancelar&aacute; una factura o CFDI sin haber informado al CLIENTE.<br/>
                                     5. En caso de que el PROVEEDOR env&iacute;e al CLIENTE una factura o CDFI con m&aacute;s de 5 d&iacute;as de la fecha de emisi&oacute;n, el CLIENTE podr&aacute; solicitar la refacturaci&oacute; correspondiente;<br/>
@@ -2224,7 +2234,7 @@
                     </style>
                 </head>
 
-                <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="Letter">
+                <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="A4-landscape">
                     <table class="header" style="width: 100%;">
                         <tr>
                             <td align="right"><span padding="1" style="color:#001a70; border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;"><b style="color:#001a70;font-size:12pt;">Orden de Compra No.:</b> ${RECORD_PDF.num_pedido} </span></td>
@@ -2250,6 +2260,7 @@
                             <td roswpan="2" width="60%">
                                 <span style="color:#001a70; font-size:8pt;">
                                     <#if RECORD_PDF[0].subsidiaria?has_content>
+                                        Nombre de la empresa: 
                                         <#assign x = RECORD_PDF[0].subsidiaria?keep_before(",")>
                                             <#escape x as x?html>
                                             ${x} <br /> <br />
@@ -2257,6 +2268,7 @@
                                     </#if>
                                     R.F.C: ${RECORD_PDF[0].subsidiaria_rfc} <br /> <br />
                                     <#if RECORD_PDF[0].subsidiaria_adress?has_content>
+                                        Domicilio fiscal: 
                                         <#assign x = RECORD_PDF[0].subsidiaria_adress>
                                         <#escape x as x?html>
                                             ${x} <br /> <br />
@@ -2307,7 +2319,7 @@
                                     </#if>
                                     <br/><br/>
                                     Telefono: ${RECORD_PDF[0].subsidiaria_phone}  <br /> <br />
-                                    www.edf-re.mx
+                                    Dirección Web: www.edf-re.mx
                                 </span>
                             </td>
                         </tr>
@@ -2392,8 +2404,8 @@
                             <td style="color:#001a70;">${RECORD_PDF[0].rep_legal_vendor}</td>
                             <#--  <td style="border-right:1px solid black; border-left:1px solid black;border-top:1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">INCOTERM:</td>
                             <td style="border-top:1px solid black;color:#001a70;">  ${RECORD_PDF[0].incoterm} </td>  -->
-                            <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
-                            <td style="border-bottom: 1px solid black; color:#001a70;"></td>
+                            <td style="border-right:1px solid black; border-left:1px solid black;border-top:1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">Solicitante del servicio:</td>
+                            <td style="border-top:1px solid black;color:#001a70;">  ${RECORD_PDF[0].solicitud_servicio} </td>
                         </tr>
 
                         <tr>
@@ -2540,11 +2552,13 @@
                                     </td>
                                     <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">${item.expecteddate}</td>
                                     <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">
-                                        Términos de pago: ${item.infoFact.terminos}<br/><br/>
                                         Forma de pago : ${item.infoFact.formaPago}<br/><br/>
                                         Uso de CFDI: ${item.infoFact.cfdi}
                                     </td>
-                                    <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">${item.condicionesPago}</td>
+                                    <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">
+                                        Términos de pago: ${item.infoFact.terminos}<br/><br/>
+                                        Condiciones de facturación: ${item.condicionesPago}
+                                    </td>
                                 </tr>
                             </#list>
                             <!-- end items -->
@@ -2738,7 +2752,7 @@
                             <td><b><span style="color:#001a70;font-size:10pt;">DETALLE DE FACTURACIÓN</span></b>
                                 <p align="justify" style="color:#001a70">
                                     1. Para evitar que el CLIENTE solicite la cancelaci&oacute;n de facturas, el proveedor podr&aacute; emitir pre-facturas para que el CLIENTE apruebe el contenido.<br/>
-                                    2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico a: ${RECORD_PDF[0].mail_vendor}<br/>
+                                    2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico al "USUARIO": ${RECORD_PDF[0].name_usuario} ${RECORD_PDF[0].email_usuario}<br/>
                                     3. Las facturas deber&aacute;n contener obligatoriamente: Nombre o Razón Social, RFC, R&eacute;gimen Fiscal, Domicilio Fiscal, Forma de Pago, Uso de CFDI, No de Orden de Compra (Señalados en este documento) y m&eacute;todo de Pago de acuerdo con los t&eacute;rminos y condiciones de pago proporcionados por el CLIENTE. <br/>
                                     4. Por ning&uacute;n motivo el PROVEEDOR emitir&aacute; o cancelar&aacute; una factura o CFDI sin haber informado al CLIENTE.<br/>
                                     5. En caso de que el PROVEEDOR env&iacute;e al CLIENTE una factura o CDFI con m&aacute;s de 5 d&iacute;as de la fecha de emisi&oacute;n, el CLIENTE podr&aacute; solicitar la refacturaci&oacute; correspondiente;<br/>
@@ -2910,7 +2924,7 @@
                     </style>
                 </head>
 
-                <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="Letter">
+                <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="A4-landscape">
                     <table class="header" style="width: 100%;">
                         <tr>
                             <td align="right"><span padding="1" style="color:#001a70; border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;"><b style="color:#001a70;font-size:12pt;">Orden de Compra No.:</b> ${RECORD_PDF.num_pedido} </span></td>
@@ -2936,6 +2950,7 @@
                             <td roswpan="2" width="60%">
                                 <span style="color:#001a70; font-size:8pt;">
                                     <#if RECORD_PDF[0].subsidiaria?has_content>
+                                        Nombre de la empresa: 
                                         <#assign x = RECORD_PDF[0].subsidiaria?keep_before(",")>
                                             <#escape x as x?html>
                                             ${x} <br /> <br />
@@ -2943,6 +2958,7 @@
                                     </#if>
                                     R.F.C: ${RECORD_PDF[0].subsidiaria_rfc} <br /> <br />
                                     <#if RECORD_PDF[0].subsidiaria_adress?has_content>
+                                        Domicilio fiscal: 
                                         <#assign x = RECORD_PDF[0].subsidiaria_adress>
                                         <#escape x as x?html>
                                             ${x} <br /> <br />
@@ -2993,7 +3009,7 @@
                                     </#if>
                                     <br/><br/>
                                     Telefono: ${RECORD_PDF[0].subsidiaria_phone}  <br /> <br />
-                                    www.edf-re.mx
+                                    Dirección Web: www.edf-re.mx
                                 </span>
                             </td>
                         </tr>
@@ -3078,8 +3094,8 @@
                             <td style="color:#001a70;">${RECORD_PDF[0].rep_legal_vendor}</td>
                             <#--  <td style="border-right:1px solid black; border-left:1px solid black;border-top:1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">INCOTERM:</td>
                             <td style="border-top:1px solid black;color:#001a70;">  ${RECORD_PDF[0].incoterm} </td>  -->
-                            <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
-                            <td style="border-bottom: 1px solid black; color:#001a70;"></td>
+                            <td style="border-right:1px solid black; border-left:1px solid black;border-top:1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">Solicitante del servicio:</td>
+                        <td style="border-top:1px solid black;color:#001a70;">  ${RECORD_PDF[0].solicitud_servicio} </td>
                         </tr>
 
                         <tr>
@@ -3226,11 +3242,13 @@
                                     </td>
                                     <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">${item.expecteddate}</td>
                                     <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">
-                                        Términos de pago: ${item.infoFact.terminos}<br/><br/>
                                         Forma de pago : ${item.infoFact.formaPago}<br/><br/>
                                         Uso de CFDI: ${item.infoFact.cfdi}
                                     </td>
-                                    <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">${item.condicionesPago}</td>
+                                    <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">
+                                        Términos de pago: ${item.infoFact.terminos}<br/><br/>
+                                        Condiciones de facturación: ${item.condicionesPago}
+                                    </td>
                                 </tr>
                             </#list>
                             <!-- end items -->
@@ -3424,7 +3442,7 @@
                         <td><b><span style="color:#001a70;font-size:10pt;">DETALLE DE FACTURACIÓN</span></b>
                             <p align="justify" style="color:#001a70">
                                 1. Para evitar que el CLIENTE solicite la cancelaci&oacute;n de facturas, el proveedor podr&aacute; emitir pre-facturas para que el CLIENTE apruebe el contenido.<br/>
-                                2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico a: ${RECORD_PDF[0].mail_vendor}<br/>
+                                2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico al "USUARIO": ${RECORD_PDF[0].name_usuario} ${RECORD_PDF[0].email_usuario}<br/>
                                 3. Las facturas deber&aacute;n contener obligatoriamente: Nombre o Razón Social, RFC, R&eacute;gimen Fiscal, Domicilio Fiscal, Forma de Pago, Uso de CFDI, No de Orden de Compra (Señalados en este documento) y m&eacute;todo de Pago de acuerdo con los t&eacute;rminos y condiciones de pago proporcionados por el CLIENTE. <br/>
                                 4. Por ning&uacute;n motivo el PROVEEDOR emitir&aacute; o cancelar&aacute; una factura o CFDI sin haber informado al CLIENTE.<br/>
                                 5. En caso de que el PROVEEDOR env&iacute;e al CLIENTE una factura o CDFI con m&aacute;s de 5 d&iacute;as de la fecha de emisi&oacute;n, el CLIENTE podr&aacute; solicitar la refacturaci&oacute; correspondiente;<br/>
@@ -3474,18 +3492,18 @@
 
     <#elseif template_pdf == '6'>
         
-                <head>
-                <link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
-                <#if .locale == "zh_CN">
-                <link name="NotoSansCJKsc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
-                <#elseif .locale == "zh_TW">
-                <link name="NotoSansCJKtc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
-                <#elseif .locale == "ja_JP">
-                <link name="NotoSansCJKjp" type="font" subtype="opentype" src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
-                <#elseif .locale == "ko_KR">
-                <link name="NotoSansCJKkr" type="font" subtype="opentype" src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
-                <#elseif .locale == "th_TH">
-                <link name="NotoSansThai" type="font" subtype="opentype" src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}" bytes="2" />
+        <head>
+            <link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+            <#if .locale == "zh_CN">
+            <link name="NotoSansCJKsc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
+            <#elseif .locale == "zh_TW">
+            <link name="NotoSansCJKtc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
+            <#elseif .locale == "ja_JP">
+            <link name="NotoSansCJKjp" type="font" subtype="opentype" src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
+            <#elseif .locale == "ko_KR">
+            <link name="NotoSansCJKkr" type="font" subtype="opentype" src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
+            <#elseif .locale == "th_TH">
+            <link name="NotoSansThai" type="font" subtype="opentype" src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}" bytes="2" />
             </#if>
             <macrolist>
                 <macro id="nlheader">
@@ -3495,193 +3513,197 @@
                     <p style="text-align: center;" align="center"><span style="font-size:11pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif"><span lang="ES" style="font-size:9.0pt"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="color:red">Propiedad de &ldquo;EDF Renewables M&eacute;xico&rdquo;</span></span></span><br /><span lang="ES" style="font-size:9.0pt"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="color:#001a70">No debe utilizarse ni copiarse de ninguna forma sin el permiso expreso y por escrito de &ldquo;EDF Renewables M&eacute;xico&rdquo;</span></span></span></span></span></span><br /><span style="font-size:10px;"><pagenumber/></span>&nbsp;<span style="font-size:10px;">/</span>&nbsp;<span style="font-size:10px;"><totalpages/></span></p>
                 </macro>
             </macrolist>
-            <style type="text/css">* {
-                <#if .locale == "zh_CN">
-                font-family: NotoSans, NotoSansCJKsc, sans-serif;
-                <#elseif .locale == "zh_TW">
-                font-family: NotoSans, NotoSansCJKtc, sans-serif;
-                <#elseif .locale == "ja_JP">
-                font-family: NotoSans, NotoSansCJKjp, sans-serif;
-                <#elseif .locale == "ko_KR">
-                font-family: NotoSans, NotoSansCJKkr, sans-serif;
-                <#elseif .locale == "th_TH">
-                font-family: NotoSans, NotoSansThai, sans-serif;
-                <#else>
-                font-family: Arial, Helvetica, sans-serif;
-                </#if>
-            }
-            table {
-                font-size: 8pt;
-                table-layout: fixed;
-            }
-            th {
-                font-weight: bold;
-                font-size: 8pt;
-                vertical-align: middle;
-                padding: 5px 6px 3px;
-                background-color: #e3e3e3;
-                color: #333333;
-            }
-            td {
-                padding: 4px 6px;
-            }
-            td p { align:left }
-            b {
-                font-weight: bold;
-                color: #333333;
-            }
-            table.header td {
-                padding: 0;
-                font-size: 10pt;
-            }
-            table.footer td {
-                padding: 0;
-                font-size: 8pt;
-            }
-            table.itemtable th {
-                padding-bottom: 10px;
-                padding-top: 10px;
-            }
-            table.body td {
-                padding-top: 2px;
-            }
-            table.total {
-                page-break-inside: avoid;
-            }
-            tr.totalrow {
-                background-color: #e3e3e3;
-                line-height: 200%;
-            }
-            td.totalboxtop {
-                font-size: 12pt;
-                background-color: #e3e3e3;
-            }
-            td.addressheader {
-                font-size: 8pt;
-                padding-top: 6px;
-                padding-bottom: 2px;
-            }
-            td.address {
-                padding-top: 0;
-            }
-            td.totalboxmid {
-                font-size: 28pt;
-                padding-top: 20px;
-                background-color: #e3e3e3;
-            }
-            td.totalboxbot {
-                background-color: #e3e3e3;
-                font-weight: bold;
-            }
-            span.title {
-                font-size: 28pt;
-            }
-            span.number {
-                font-size: 16pt;
-            }
-            span.itemname {
-                font-weight: bold;
-                line-height: 150%;
-                font-size: 8pt;
-            }
-            hr {
-                width: 100%;
-                color: #d3d3d3;
-                background-color: #d3d3d3;
-                height: 1px;
-            }
-            span.b {
-                color:#001a70;
-            }
-            </style>
-            </head>
-            <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="Letter">
-
-
-            <table class="header" style="width: 100%;"><tr>
-                <td align="right"><span padding="1" style="color:#001a70; border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;"><b style="color:#001a70;font-size:12pt;">Orden de Compra No.:</b> ${RECORD_PDF.num_pedido} </span></td>
-            </tr></table>
-
-            <table style="border: 1px solid black;" width="100%"><tr>
-                <td style="border-right: 1px solid black;" width="40%">
-                    <table><tr>
-                        <td style="margin-left: 10px;margin-bottom: 0px; margin-top: 0px; margin-right: 0px;">
-                            <#if RECORD_PDF[0].subsidiaria_logo?has_content>
-                            <#assign x = RECORD_PDF[0].subsidiaria_logo>
-                            <#escape x as x?html>
-                            <img src="${x}" style="float: left; height:80px; width:150px" />
-                        </#escape>
+            <style type="text/css">* 
+                {
+                    <#if .locale == "zh_CN">
+                    font-family: NotoSans, NotoSansCJKsc, sans-serif;
+                    <#elseif .locale == "zh_TW">
+                    font-family: NotoSans, NotoSansCJKtc, sans-serif;
+                    <#elseif .locale == "ja_JP">
+                    font-family: NotoSans, NotoSansCJKjp, sans-serif;
+                    <#elseif .locale == "ko_KR">
+                    font-family: NotoSans, NotoSansCJKkr, sans-serif;
+                    <#elseif .locale == "th_TH">
+                    font-family: NotoSans, NotoSansThai, sans-serif;
+                    <#else>
+                    font-family: Arial, Helvetica, sans-serif;
                     </#if>
-                        </td>
-                        </tr></table>
-                </td>
-                <td roswpan="2" width="60%">
-                    <span style="color:#001a70; font-size:8pt;">
-                        <#if RECORD_PDF[0].subsidiaria?has_content>
-                        <#assign x = RECORD_PDF[0].subsidiaria>
-                            <#escape x as x?html>
-                            ${x} <br /> <br />
-                        </#escape>
-                        </#if>
+                }
+                table {
+                    font-size: 8pt;
+                    table-layout: fixed;
+                }
+                th {
+                    font-weight: bold;
+                    font-size: 8pt;
+                    vertical-align: middle;
+                    padding: 5px 6px 3px;
+                    background-color: #e3e3e3;
+                    color: #333333;
+                }
+                td {
+                    padding: 4px 6px;
+                }
+                td p { align:left }
+                b {
+                    font-weight: bold;
+                    color: #333333;
+                }
+                table.header td {
+                    padding: 0;
+                    font-size: 10pt;
+                }
+                table.footer td {
+                    padding: 0;
+                    font-size: 8pt;
+                }
+                table.itemtable th {
+                    padding-bottom: 10px;
+                    padding-top: 10px;
+                }
+                table.body td {
+                    padding-top: 2px;
+                }
+                table.total {
+                    page-break-inside: avoid;
+                }
+                tr.totalrow {
+                    background-color: #e3e3e3;
+                    line-height: 200%;
+                }
+                td.totalboxtop {
+                    font-size: 12pt;
+                    background-color: #e3e3e3;
+                }
+                td.addressheader {
+                    font-size: 8pt;
+                    padding-top: 6px;
+                    padding-bottom: 2px;
+                }
+                td.address {
+                    padding-top: 0;
+                }
+                td.totalboxmid {
+                    font-size: 28pt;
+                    padding-top: 20px;
+                    background-color: #e3e3e3;
+                }
+                td.totalboxbot {
+                    background-color: #e3e3e3;
+                    font-weight: bold;
+                }
+                span.title {
+                    font-size: 28pt;
+                }
+                span.number {
+                    font-size: 16pt;
+                }
+                span.itemname {
+                    font-weight: bold;
+                    line-height: 150%;
+                    font-size: 8pt;
+                }
+                hr {
+                    width: 100%;
+                    color: #d3d3d3;
+                    background-color: #d3d3d3;
+                    height: 1px;
+                }
+                span.b {
+                    color:#001a70;
+                }
+            </style>
+        </head>
+        <body header="nlheader" header-height="4%" footer="nlfooter" footer-height="20pt" padding="0.1in 0.5in 0.5in 0.5in" size="A4-landscape">
 
-            R.F.C: ${RECORD_PDF[0].subsidiaria_rfc} <br /> <br />
+            <table class="header" style="width: 100%;">
+                <tr>
+                    <td align="right"><span padding="1" style="color:#001a70; border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;"><b style="color:#001a70;font-size:12pt;">Orden de Compra No.:</b> ${RECORD_PDF.num_pedido} </span></td>
+                </tr>
+            </table>
 
-                <#if RECORD_PDF[0].subsidiaria_adress?has_content>
-                <#assign x = RECORD_PDF[0].subsidiaria_adress>
-                <#escape x as x?html>
-                    ${x} <br /> <br />
-                </#escape>
-                </#if>
-                Régimen Fiscal: 
-                <#assign regfiscal = RECORD_PDF[0].regimenFiscal>
-                <#if regfiscal == "601">
-                    601 - GENERAL DE LEY PERSONAS MORALES
-                <#elseif regfiscal == "603">
-                    603 - PERSONAS MORALES CON FINES NO LUCRATIVOS
-                <#elseif regfiscal == "605">
-                    605 - SUELDOS Y SALARIOS E INGRESOS ASIMILADOS A SALARIOS
-                <#elseif regfiscal == "606">
-                    606 - ARRENDAMIENTO
-                <#elseif regfiscal == "607">
-                    607 - RÉGIMEN DE ENAJENACIÓN O ADQUISICIÓN DE BIENES
-                <#elseif regfiscal == "608">
-                    608 - DEMÁS INGRESOS
-                <#elseif regfiscal == "610">
-                    610 - RESIDENTES EN EL EXTRANJERO SIN ESTABLECIMIENTO PERMANENTE EN MÉXICO
-                <#elseif regfiscal == "611">
-                    611 - INGRESOS POR DIVIDENDOS (SOCIOS Y ACCIONISTAS)
-                <#elseif regfiscal == "612">
-                    612 - PERSONAS FÍSICAS CON ACTIVIDADES EMPRESARIALES Y PROFESIONALES
-                <#elseif regfiscal == "614">
-                    614 - INGRESOS POR INTERESES
-                <#elseif regfiscal == "615">
-                    615 - RÉGIMEN DE LOS INGRESOS POR OBTENCIÓN DE PREMIOS
-                <#elseif regfiscal == "616">
-                    616 - SIN OBLIGACIONES FISCALES
-                <#elseif regfiscal == "620">
-                    620 -SOCIEDADES COOPERATIVAS DE PRODUCCIÓN QUE OPTAN POR DIFERIR SUS INGRESOS
-                <#elseif regfiscal == "621">
-                    621 - INCORPORACIÓN FISCAL
-                <#elseif regfiscal == "622">
-                    622 - ACTIVIDADES AGRÍCOLAS, GANADERAS, SILVÍCOLAS Y PESQUERAS
-                <#elseif regfiscal == "623">
-                    623 - OPCIONAL PARA GRUPOS DE SOCIEDADES
-                <#elseif regfiscal == "624">
-                    624 - COORDINADOS
-                <#elseif regfiscal == "625">
-                    625 - RÉGIMEN DE LAS ACTIVIDADES EMPRESARIALES CON INGRESOS A TRAVÉS DE PLATAFORMAS TECNOLÓGICAS
-                <#elseif regfiscal == "626">
-                    626 - RÉGIMEN SIMPLIFICADO DE CONFIANZA
-                <#else>
-                    ${RECORD_PDF[0].regimenFiscal}
-                </#if>
-                <br /> <br />
-
-            Telefono: ${RECORD_PDF[0].subsidiaria_phone}  <br /> <br />
-                www.edf-re.mx
-                </span>
-                </td>
-            </tr>
+            <table style="border: 1px solid black;" width="100%">
+                <tr>
+                    <td style="border-right: 1px solid black;" width="40%">
+                        <table>
+                            <tr>
+                                <td style="margin-left: 10px;margin-bottom: 0px; margin-top: 0px; margin-right: 0px;">
+                                    <#if RECORD_PDF[0].subsidiaria_logo?has_content>
+                                        <#assign x = RECORD_PDF[0].subsidiaria_logo>
+                                        <#escape x as x?html>
+                                            <img src="${x}" style="float: left; height:80px; width:150px" />
+                                        </#escape>
+                                    </#if>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td roswpan="2" width="60%">
+                        <span style="color:#001a70; font-size:8pt;">
+                            <#if RECORD_PDF[0].subsidiaria?has_content>
+                                Nombre de la empresa: 
+                                <#assign x = RECORD_PDF[0].subsidiaria>
+                                <#escape x as x?html>
+                                    ${x} <br /> <br />
+                                </#escape>
+                            </#if>
+                            R.F.C: ${RECORD_PDF[0].subsidiaria_rfc} <br /> <br />
+                            <#if RECORD_PDF[0].subsidiaria_adress?has_content>
+                                Domicilio fiscal: 
+                                <#assign x = RECORD_PDF[0].subsidiaria_adress>
+                                <#escape x as x?html>
+                                    ${x} <br /> <br />
+                                </#escape>
+                            </#if>
+                            Régimen Fiscal: 
+                            <#assign regfiscal = RECORD_PDF[0].regimenFiscal>
+                            <#if regfiscal == "601">
+                                601 - GENERAL DE LEY PERSONAS MORALES
+                            <#elseif regfiscal == "603">
+                                603 - PERSONAS MORALES CON FINES NO LUCRATIVOS
+                            <#elseif regfiscal == "605">
+                                605 - SUELDOS Y SALARIOS E INGRESOS ASIMILADOS A SALARIOS
+                            <#elseif regfiscal == "606">
+                                606 - ARRENDAMIENTO
+                            <#elseif regfiscal == "607">
+                                607 - RÉGIMEN DE ENAJENACIÓN O ADQUISICIÓN DE BIENES
+                            <#elseif regfiscal == "608">
+                                608 - DEMÁS INGRESOS
+                            <#elseif regfiscal == "610">
+                                610 - RESIDENTES EN EL EXTRANJERO SIN ESTABLECIMIENTO PERMANENTE EN MÉXICO
+                            <#elseif regfiscal == "611">
+                                611 - INGRESOS POR DIVIDENDOS (SOCIOS Y ACCIONISTAS)
+                            <#elseif regfiscal == "612">
+                                612 - PERSONAS FÍSICAS CON ACTIVIDADES EMPRESARIALES Y PROFESIONALES
+                            <#elseif regfiscal == "614">
+                                614 - INGRESOS POR INTERESES
+                            <#elseif regfiscal == "615">
+                                615 - RÉGIMEN DE LOS INGRESOS POR OBTENCIÓN DE PREMIOS
+                            <#elseif regfiscal == "616">
+                                616 - SIN OBLIGACIONES FISCALES
+                            <#elseif regfiscal == "620">
+                                620 -SOCIEDADES COOPERATIVAS DE PRODUCCIÓN QUE OPTAN POR DIFERIR SUS INGRESOS
+                            <#elseif regfiscal == "621">
+                                621 - INCORPORACIÓN FISCAL
+                            <#elseif regfiscal == "622">
+                                622 - ACTIVIDADES AGRÍCOLAS, GANADERAS, SILVÍCOLAS Y PESQUERAS
+                            <#elseif regfiscal == "623">
+                                623 - OPCIONAL PARA GRUPOS DE SOCIEDADES
+                            <#elseif regfiscal == "624">
+                                624 - COORDINADOS
+                            <#elseif regfiscal == "625">
+                                625 - RÉGIMEN DE LAS ACTIVIDADES EMPRESARIALES CON INGRESOS A TRAVÉS DE PLATAFORMAS TECNOLÓGICAS
+                            <#elseif regfiscal == "626">
+                                626 - RÉGIMEN SIMPLIFICADO DE CONFIANZA
+                            <#else>
+                                ${RECORD_PDF[0].regimenFiscal}
+                            </#if>
+                            <br /> <br />
+                            Telefono: ${RECORD_PDF[0].subsidiaria_phone}  <br /> <br />
+                            Dirección Web: www.edf-re.mx
+                        </span>
+                    </td>
+                </tr>
             </table>
 
             <table style="border-right: 1px solid black; border-left: 1px solid black;" width="100%">
@@ -3691,126 +3713,125 @@
                 </tr>
             </table>
 
-                <table style="border: 1px solid black;" width="100%">
-                    <#-- ========================Inicio de datos Proveedor=====================  -->
-                        <#-- =========Razón Social y lugar de Emisión======================  -->
-                        <tr>
-                            <td style="color:#001a70;font-size:10pt;font-weight: bold;">Raz&oacute;n Social/Nombre:</td>
-                            <td><span style="color:#001a70">
-                            <#assign x = RECORD_PDF[0].razon_social>
+            <table style="border: 1px solid black;" width="100%">
+                <#-- ========================Inicio de datos Proveedor=====================  -->
+                    <#-- =========Razón Social y lugar de Emisión======================  -->
+                    <tr>
+                        <td style="color:#001a70;font-size:10pt;font-weight: bold;">Raz&oacute;n Social/Nombre:</td>
+                        <td><span style="color:#001a70">
+                        <#assign x = RECORD_PDF[0].razon_social>
+                                    <#escape x as x?html>
+                                        ${x}
+                                    </#escape>
+                        </span>  </td>
+                        <td style=" border-right: 1px solid black; border-left: 1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">LUGAR Y FECHA DE EMISI&Oacute;N:</td>
+                        <td style=" color:#001a70;">${RECORD_PDF[0].fecha_emision}</td>
+                    </tr>
+
+                    <#-- =====================RFC=====================================  -->
+                    <tr>
+                        <td style="color:#001a70;font-size:10pt;font-weight: bold;">RFC: </td>
+                        <td>
+                            <span style="color:#001a70">
+                                    <#assign x = RECORD_PDF[0].rfc_vendor>
                                         <#escape x as x?html>
                                             ${x}
                                         </#escape>
-                            </span>  </td>
-                            <td style=" border-right: 1px solid black; border-left: 1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">LUGAR Y FECHA DE EMISI&Oacute;N:</td>
-                            <td style=" color:#001a70;">${RECORD_PDF[0].fecha_emision}</td>
-                        </tr>
-
-                        <#-- =====================RFC=====================================  -->
-                        <tr>
-                            <td style="color:#001a70;font-size:10pt;font-weight: bold;">RFC: </td>
-                            <td>
-                                <span style="color:#001a70">
-                                        <#assign x = RECORD_PDF[0].rfc_vendor>
-                                            <#escape x as x?html>
-                                                ${x}
-                                            </#escape>
-                                </span>  
-                            </td>
-                            <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
-                            <td style="border-bottom: 1px solid black; color:#001a70;"></td>
-                        </tr>
-
-                        <#-- ======================Domicilio y lugar de entrega====================  -->
-                        <tr>
-                            <td style="color:#001a70;font-size:10pt;font-weight: bold;">Domicilio:</td>
-                            <td style="color:#001a70;"><!--${RECORD_PDF[0].billadress}-->
-                                <#assign x = RECORD_PDF[0].billadress>
-                                    <#escape x as x?html>
-                                        ${x}
-                                    </#escape>
-                            </td>
-                            <td style="border-right: 1px solid black; border-left: 1px solid black; color:#001a70;font-size:10pt;font-weight: bold;" rowspan="2">LUGAR DE ENTREGA:</td>
-                            <td style="color:#001a70;" rowspan="2"> <#if RECORD_PDF[0].direccion_entrega?has_content>
-                            <#assign x = RECORD_PDF[0].direccion_entrega>
-                                    <#escape x as x?html>
-                                        ${x}
-                                    </#escape>
-                            </#if> </td>
-                        </tr>
-
-                        <#--  ======================Teléfono========================  -->
-                        <tr>
-                            <td style="color:#001a70;font-size:10pt;font-weight: bold;">Telefono</td>
-                            <td style="color:#001a70;"><#if RECORD_PDF[0].telefono_vendor?has_content >${RECORD_PDF[0].telefono_vendor} </#if></td>
-
-                        </tr>
-
-                        <#--  =================Correo Electrónico=================  -->
-                        <tr>
-                            <td style="color:#001a70;font-size:10pt;font-weight: bold;">Correo Electrónico:</td>
-                            <td style="color:#001a70;"><#if RECORD_PDF[0].mail_vendor?has_content> ${RECORD_PDF[0].mail_vendor} </#if></td>
-                            <#--  <td style="border-left: 1px solid black; border-right: 1px solid black;">  </td>
-                            <td></td>  -->
-                            <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
-                            <td style="border-bottom: 1px solid black; color:#001a70;"></td>
-                            
-                        </tr>
-
-                        <#-- ================ Email contacto e INCOTERM==============  -->
-                        <tr>
-                            <td style="color:#001a70;font-size:10pt;font-weight: bold;"><#if RECORD_PDF[0].email_contacto_principal>Correo Electrónico de Contacto:</#if></td>
-                            <td style="color:#001a70;"><#if RECORD_PDF[0].email_contacto_principal> ${RECORD_PDF[0].email_contacto_principal} </#if></td>
-                            <#--  <td style="border-right: 1px solid black; border-left: 1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">CONDICIONES DE PAGO:</td>
-                            <td style="color:#001a70;">  ${RECORD_PDF[0].terminos} </td>  -->
-                            <td style="color:#001a70; border-right: 1px solid black;border-left: 1px solid black;">INCOTERM:</td>
-                            <td style="border-top:1px solid black;color:#001a70;" >  ${RECORD_PDF[0].incoterm} </td>
-                        </tr>
-                        <#-- ==============Contacto==================================  -->
-                        <tr>
-                            <td style="color:#001a70;font-size:10pt;font-weight: bold;">Contacto:</td>
-                            <td style="color:#001a70;">${RECORD_PDF[0].rep_legal_vendor}</td>
-                            <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
-                            <td style="border-bottom: 1px solid black; color:#001a70;"></td>
-                            <#--  <td style="border-right:1px solid black; border-left:1px solid black;border-top:1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">INCOTERM:</td>
-                            <td style="border-top:1px solid black;color:#001a70;">  ${RECORD_PDF[0].incoterm} </td>  -->
-                        </tr>
-
-                    <#if RECORD_PDF.printlabel == 'T'>
-                    <tr>
-                    <td style="color:#001a70;font-size:10pt;font-weight: bold;">
-                        Número de Registro en el Padrón de la STPS:
-                    </td>
-                    <td style="color:#001a70;"></td>
-                    <td style="border-right:1px solid black; border-left:1px solid black;color:#001a70;font-size:10pt;font-weight: bold;"></td>
-                    <td style="color:#001a70;"></td>
+                            </span>  
+                        </td>
+                        <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
+                        <td style="border-bottom: 1px solid black; color:#001a70;"></td>
                     </tr>
+
+                    <#-- ======================Domicilio y lugar de entrega====================  -->
                     <tr>
-                    <td style="color:#001a70;font-size:10pt;font-weight: bold;">
-                        Folio de Servicios registrados:
-                    </td>
-                    <td style="color:#001a70;"></td>
-                    <td style="border-right:1px solid black; border-left:1px solid black;color:#001a70;font-size:10pt;font-weight: bold;"></td>
-                    <td style="color:#001a70;"></td>
+                        <td style="color:#001a70;font-size:10pt;font-weight: bold;">Domicilio:</td>
+                        <td style="color:#001a70;"><!--${RECORD_PDF[0].billadress}-->
+                            <#assign x = RECORD_PDF[0].billadress>
+                                <#escape x as x?html>
+                                    ${x}
+                                </#escape>
+                        </td>
+                        <td style="border-right: 1px solid black; border-left: 1px solid black; color:#001a70;font-size:10pt;font-weight: bold;" rowspan="2">LUGAR DE ENTREGA:</td>
+                        <td style="color:#001a70;" rowspan="2"> <#if RECORD_PDF[0].direccion_entrega?has_content>
+                        <#assign x = RECORD_PDF[0].direccion_entrega>
+                                <#escape x as x?html>
+                                    ${x}
+                                </#escape>
+                        </#if> </td>
                     </tr>
+
+                    <#--  ======================Teléfono========================  -->
                     <tr>
-                    <td style="color:#001a70;font-size:10pt;font-weight: bold;">
-                        Servicios Especializados registrados:
-                    </td>
-                    <td style="color:#001a70;"></td>
-                    <td style="border-right:1px solid black; border-left:1px solid black;color:#001a70;font-size:10pt;font-weight: bold;"></td>
-                    <td style="color:#001a70;"></td>
+                        <td style="color:#001a70;font-size:10pt;font-weight: bold;">Telefono</td>
+                        <td style="color:#001a70;"><#if RECORD_PDF[0].telefono_vendor?has_content >${RECORD_PDF[0].telefono_vendor} </#if></td>
+
                     </tr>
+
+                    <#--  =================Correo Electrónico=================  -->
                     <tr>
-                    <td style="color:#001a70;font-size:10pt;font-weight: bold;">
-                        Número de Trabajadores (aproximado):
-                    </td>
-                    <td style="color:#001a70;"></td>
-                    <td style="border-right:1px solid black; border-left:1px solid black;color:#001a70;font-size:10pt;font-weight: bold;"></td>
-                    <td style="color:#001a70;"></td>
+                        <td style="color:#001a70;font-size:10pt;font-weight: bold;">Correo Electrónico:</td>
+                        <td style="color:#001a70;"><#if RECORD_PDF[0].mail_vendor?has_content> ${RECORD_PDF[0].mail_vendor} </#if></td>
+                        <#--  <td style="border-left: 1px solid black; border-right: 1px solid black;">  </td>
+                        <td></td>  -->
+                        <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"></td>
+                        <td style="border-bottom: 1px solid black; color:#001a70;"></td>
+                        
                     </tr>
-                    </#if>
-                </table>
+
+                    <#-- ================ Email contacto e INCOTERM==============  -->
+                    <tr>
+                        <td style="color:#001a70;font-size:10pt;font-weight: bold;"><#if RECORD_PDF[0].email_contacto_principal>Correo Electrónico de Contacto:</#if></td>
+                        <td style="color:#001a70;"><#if RECORD_PDF[0].email_contacto_principal> ${RECORD_PDF[0].email_contacto_principal} </#if></td>
+                        <#--  <td style="border-right: 1px solid black; border-left: 1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">CONDICIONES DE PAGO:</td>
+                        <td style="color:#001a70;">  ${RECORD_PDF[0].terminos} </td>  -->
+                        <td style="color:#001a70; border-right: 1px solid black;border-left: 1px solid black;">INCOTERM:</td>
+                        <td style="border-top:1px solid black;color:#001a70;" >  ${RECORD_PDF[0].incoterm} </td>
+                    </tr>
+                    <#-- ==============Contacto y Solicitante del servicio==================================  -->
+                    <tr>
+                        <td style="color:#001a70;font-size:10pt;font-weight: bold;">Contacto:</td>
+                        <td style="color:#001a70;">${RECORD_PDF[0].rep_legal_vendor}</td>
+                        <#--  <td style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; color:#001a70;"> Hola tu</td>
+                        <td style="border-bottom: 1px solid black; color:#001a70;">bienve</td>  -->
+                        <td style="border-right:1px solid black; border-left:1px solid black;border-top:1px solid black; color:#001a70;font-size:10pt;font-weight: bold;">Solicitante del servicio:</td>
+                        <td style="border-top:1px solid black;color:#001a70;">  ${RECORD_PDF[0].solicitud_servicio} </td>
+                    </tr>
+                <#if RECORD_PDF.printlabel == 'T'>
+                <tr>
+                <td style="color:#001a70;font-size:10pt;font-weight: bold;">
+                    Número de Registro en el Padrón de la STPS:
+                </td>
+                <td style="color:#001a70;"></td>
+                <td style="border-right:1px solid black; border-left:1px solid black;color:#001a70;font-size:10pt;font-weight: bold;"></td>
+                <td style="color:#001a70;"></td>
+                </tr>
+                <tr>
+                <td style="color:#001a70;font-size:10pt;font-weight: bold;">
+                    Folio de Servicios registrados:
+                </td>
+                <td style="color:#001a70;"></td>
+                <td style="border-right:1px solid black; border-left:1px solid black;color:#001a70;font-size:10pt;font-weight: bold;"></td>
+                <td style="color:#001a70;"></td>
+                </tr>
+                <tr>
+                <td style="color:#001a70;font-size:10pt;font-weight: bold;">
+                    Servicios Especializados registrados:
+                </td>
+                <td style="color:#001a70;"></td>
+                <td style="border-right:1px solid black; border-left:1px solid black;color:#001a70;font-size:10pt;font-weight: bold;"></td>
+                <td style="color:#001a70;"></td>
+                </tr>
+                <tr>
+                <td style="color:#001a70;font-size:10pt;font-weight: bold;">
+                    Número de Trabajadores (aproximado):
+                </td>
+                <td style="color:#001a70;"></td>
+                <td style="border-right:1px solid black; border-left:1px solid black;color:#001a70;font-size:10pt;font-weight: bold;"></td>
+                <td style="color:#001a70;"></td>
+                </tr>
+                </#if>
+            </table>
         
 
 
@@ -3936,11 +3957,13 @@
                     </td>
                     <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">${item.expecteddate}</td>
                     <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">
-                        Términos de pago: ${item.infoFact.terminos}<br/><br/>
                         Forma de pago : ${item.infoFact.formaPago}<br/><br/>
                         Uso de CFDI: ${item.infoFact.cfdi}
                     </td>
-                    <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">${item.condicionesPago}</td>
+                    <td align="center" colspan="4" style="border-bottom: 1px solid black; border-right: 1px solid black; color:#001a70;">
+                        Términos de pago: ${item.infoFact.terminos}<br/><br/>
+                        Condiciones de facturación: ${item.condicionesPago}
+                    </td>
                 </tr>
             
             </#list><!-- end items -->
@@ -4100,7 +4123,7 @@
                 <td><b><span style="color:#001a70;font-size:10pt;">DETALLE DE FACTURACIÓN</span></b>
                     <p align="justify" style="color:#001a70">
                         1. Para evitar que el CLIENTE solicite la cancelaci&oacute;n de facturas, el proveedor podr&aacute; emitir pre-facturas para que el CLIENTE apruebe el contenido.<br/>
-                        2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico a: ${RECORD_PDF[0].mail_vendor}<br/>
+                        2. EL PROVEEDOR deber&aacute; enviar las Facturas o CFDI junto con su soporte en formato electr&oacute;nico al "USUARIO": ${RECORD_PDF[0].name_usuario} ${RECORD_PDF[0].email_usuario}<br/>
                         3. Las facturas deber&aacute;n contener obligatoriamente: Nombre o Razón Social, RFC, R&eacute;gimen Fiscal, Domicilio Fiscal, Forma de Pago, Uso de CFDI, No de Orden de Compra (Señalados en este documento) y m&eacute;todo de Pago de acuerdo con los t&eacute;rminos y condiciones de pago proporcionados por el CLIENTE. <br/>
                         4. Por ning&uacute;n motivo el PROVEEDOR emitir&aacute; o cancelar&aacute; una factura o CFDI sin haber informado al CLIENTE.<br/>
                         5. En caso de que el PROVEEDOR env&iacute;e al CLIENTE una factura o CDFI con m&aacute;s de 5 d&iacute;as de la fecha de emisi&oacute;n, el CLIENTE podr&aacute; solicitar la refacturaci&oacute; correspondiente;<br/>

@@ -19,7 +19,7 @@
             });
             var formato_pdf = records.getValue('custbody_tkio_form_clausu_impres');
             log.audit("formato_pdf", formato_pdf);
-            // pdfID SB = 165 || PROD = 148
+            // !pdfID SB = 165 || PROD = 148
             var pdfId = 165;
             datosJson = buildDataPDF_default(context, records);
             log.audit({ title: "datosJason", details: datosJson });
@@ -63,6 +63,9 @@
             var folio_servicios = records.getValue('custbody_tkio_serv_registrados');
             var serviciosEspecializados = records.getValue('custbody_tkio_serv_esp_reg');
             var numTrabajadores = records.getValue("custbody_tkio_num_trabajadores");
+
+            var usuarioName = records.getValue("custbody_fb_print_po_user_name");
+            var usuarioEmail = records.getValue("custbody_fb_print_po_user_email");
 
             var totales_format = format.getCurrencyFormatter({ currency: currency });
             var totales_symbol = totales_format.symbol;
@@ -165,6 +168,8 @@
             var subsidiary_adress = subsidiary_record.getValue('mainaddress_text');
             var subsidiary_phone = subsidiary_record.getValue('phone') || '5482 5260';
             var subsidiary_name = subsidiary_record.getValue('legalname');
+            var subsidiaryArray = subsidiary_name.split(', ');
+            subsidiary_name = subsidiaryArray[0];
             var subsidiary_logo_url = subsidiary_record.getValue('logo');
             if (subsidiary_logo_url) {
                 var file_logo = file.load({ id: subsidiary_logo_url });
@@ -353,9 +358,14 @@
             if (solped[0]) {
                 datosJson.email_solicitante = empleado.getValue('email') || '';
                 datosJson.rep_legal = empleado.getValue('custentity_efx_replegal') || '';
+                datosJson.email_usuario = empleado.getValue('email') || '';
+                datosJson.name_usuario = empleado.getValue('altname') || '';
             } else {
                 datosJson.email_solicitante = emailEmployee || nombre_empleado;
+                datosJson.email_usuario = usuarioEmail;
+                datosJson.name_usuario = usuarioName;
             }
+            datosJson.solicitud_servicio = records.getText({fieldId: 'custbody_fb_print_po_solicitante_serv'});
             log.audit({ title: 'result email_contacto_principal', details: resultado });
             if (resultado[0]) {
                 datosJson.email_contacto_principal = resultado[0].getValue({ name: 'email' }) || '';
